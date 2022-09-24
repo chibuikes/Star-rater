@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Star Rater</title>
+ <style>
+ @media(max-width:500px){
+ .stars ul {
+ list-style-type: none;
+ padding: 0;
+ }
+ .star {
+ font-size: 2em;
+ color: #ddd;
+ display: inline-block;
+ }
+ .orange {
+ color: orange;
+ }
+ .output {
+ background-color: #ddd;
+ }
+ }
+ @media(min-width:510px){
+    .stars ul {
+ list-style-type: none;
+ padding: 0;
+ }
+ .star {
+ font-size: 5em;
+ color: #ddd;
+ display: inline-block;
+ }
+ .orange {
+ color: orange;
+ }
+ .output {
+ font-size: 3em;
+ background-color: #ddd;
+ }
+   
+ }
+ </style>
+</head>
+
+<body>
+ <ul class="stars">
+ <li class="star">&#10029;</li>
+ <li class="star">&#10029;</li>
+ <li class="star">&#10029;</li>
+ <li class="star">&#10029;</li>
+ <li class="star">&#10029;</li>
+ </ul>
+ <div class="output"></div>
+ <script>
+
+ let output= document.querySelector(".output")
+ let star=document.querySelectorAll(".star")
+ let stars= document.querySelector(".stars")
+ let srRate = () => {
+ }
+ star.forEach((e,i)=>{
+  let value=i+1
+   e.addEventListener("click",(el)=>{
+  //  function starRate(){
+for(let j=0; j<star.length;j++){
+if(j<=i-1){
+  star.item(j).classList.add("orange")
+}
+else{
+  star.item(j).classList.remove("orange")
+  
+}
+}
+  el.target.classList.toggle("orange")
+
+  let m= document.querySelector(".output")
+  m.innerText=`You rated this ${value} stars`
+       
+//}
+     
+   })
+ })
+ </script>
+</body>
+</html>
